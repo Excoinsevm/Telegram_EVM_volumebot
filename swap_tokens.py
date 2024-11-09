@@ -5,9 +5,9 @@ from buy import buyTokens
 from sell import sellTokens
 from abi import ERC20_ABI, Pancake_Router_ABI
 
-PANCAKE_ROUTER_ADDRESS = "0x10ED43C718714eb63d5aA57B78B54704E256024E"
-WBNB_ADDRESS = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-bsc = "https://bsc-dataseed.binance.org/"
+PANCAKE_ROUTER_ADDRESS = "0x28011841A9E8D782a3B58da3e757fc939cca84B3"
+WBNB_ADDRESS = "0x413f0E3A440abA7A15137F4278121450416882d5"
+bsc = "https://connect.bit-rock.io/"
 web3 = Web3(Web3.HTTPProvider(bsc))
 pancake_router_address = web3.to_checksum_address(PANCAKE_ROUTER_ADDRESS)
 TradingTokenDecimal = None
@@ -17,13 +17,13 @@ def initialize_buy(user_data):
     # global driver
     global TradingTokenDecimal
     chain = user_data.get("Chain")
-    BNB_amount = user_data.get("BNB")
+    BNB_amount = user_data.get("BROCK")
     token_to_buy_address = user_data.get("TokenToBuyAddress")
     WBNB_Address = web3.to_checksum_address(WBNB_ADDRESS)
     wallet_address = user_data.get("Wallet Address")
     private_key = user_data.get("Private Key")
 
-    if chain == "BSC":            
+    if chain == "BITROCK":            
         # Getting ABI
         token_abi = ERC20_ABI
         pancake_router_abi = Pancake_Router_ABI
@@ -70,14 +70,14 @@ def initialize_sell(user_data):
     # global driver
     global TradingTokenDecimal
     chain = user_data.get("Chain")
-    BNB_amount = user_data.get("BNB")
+    BNB_amount = user_data.get("BROCK")
     token_to_buy_address = web3.to_checksum_address(user_data.get("TokenToSellAddress"))
     WBNB_Address = web3.to_checksum_address(WBNB_ADDRESS)
     wallet_address = user_data.get("Wallet Address")
     private_key = user_data.get("Private Key")
     token_to_amount = user_data.get("AmountOfToken")
 
-    if chain == "BSC":
+    if chain == "BITROCK":
         # Getting ABI
         token_abi = ERC20_ABI
         pancake_router_abi = Pancake_Router_ABI
