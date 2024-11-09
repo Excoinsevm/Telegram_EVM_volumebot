@@ -17,13 +17,13 @@ def initialize_buy(user_data):
     # global driver
     global TradingTokenDecimal
     chain = user_data.get("Chain")
-    BNB_amount = user_data.get("BROCK")
+    BNB_amount = user_data.get("BNB")
     token_to_buy_address = user_data.get("TokenToBuyAddress")
     WBNB_Address = web3.to_checksum_address(WBNB_ADDRESS)
     wallet_address = user_data.get("Wallet Address")
     private_key = user_data.get("Private Key")
 
-    if chain == "BITROCK":            
+    if chain == "BSC":            
         # Getting ABI
         token_abi = ERC20_ABI
         pancake_router_abi = Pancake_Router_ABI
@@ -70,14 +70,14 @@ def initialize_sell(user_data):
     # global driver
     global TradingTokenDecimal
     chain = user_data.get("Chain")
-    BNB_amount = user_data.get("BROCK")
+    BNB_amount = user_data.get("BNB")
     token_to_buy_address = web3.to_checksum_address(user_data.get("TokenToSellAddress"))
     WBNB_Address = web3.to_checksum_address(WBNB_ADDRESS)
     wallet_address = user_data.get("Wallet Address")
     private_key = user_data.get("Private Key")
     token_to_amount = user_data.get("AmountOfToken")
 
-    if chain == "BITROCK":
+    if chain == "BSC":
         # Getting ABI
         token_abi = ERC20_ABI
         pancake_router_abi = Pancake_Router_ABI
